@@ -1,0 +1,68 @@
+[startup]
+exec = [
+	"dunst",
+	"waybar",
+	"swaybg -i ~/Pictures/Backgrounds/bg.png"
+]
+
+[[startup.env]]
+MOZ_ENABLE_WAYLAND = 1
+ELECTRON_OZONE_PLATFORM_HINT = "wayland"
+SDL_VIDEODRIVER="wayland"
+
+[keyboard]
+layout = "de"
+
+[pointer.xcursor]
+theme = "capitaine-cursors"
+size = 24
+
+[pointer.touchpad]
+natural_scroll = true
+tap_to_click = true
+
+[tiling]
+method = "dwindle"
+
+[binds]
+exit = "Logo Escape"
+window.close = "Logo w"
+window.fullscreen = "Logo f"
+window.previous = "Logo o"
+window.next = "Logo p"
+window.move = "Logo MouseLeft"
+window.up = "Logo k"
+window.down = "Logo j"
+window.left = "Logo h"
+window.right = "Logo l"
+window.swap.up = "Shift Logo K"
+window.swap.down = "Shift Logo J"
+window.swap.left = "Shift Logo H"
+window.swap.right = "Shift Logo L"
+window.swap.close = "Logo w"
+workspace.tile = "Logo t"
+workspace.open = "Logo Number"
+workspace.window_to = "Logo Shift Number"
+
+[[monitors]]
+name = "eDP-1"
+width = 2880
+height = 1800
+refresh = 90
+scale = 1.5
+
+[[commands]]
+bind = "Logo space"
+exec = "rofi -show drun"
+
+[[commands]]
+bind = "Logo Return"
+exec = "foot"
+
+[[commands]]
+bind = "Print"
+exec = "grim -g \"$(slurp)\" - | swappy -f - "
+
+[[commands]]
+bind = "Shift Print"
+exec = "grim - | swappy -f - "

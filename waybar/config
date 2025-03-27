@@ -1,0 +1,105 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "custom/awm_workspace"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "network",
+    "backlight",
+    "cpu",
+    "memory",
+    "battery",
+    "battery#bat2",
+    "custom/power"
+  ],
+  "custom/awm_workspace": {
+    "format": "{text}",
+    "exec": "$HOME/.config/waybar/workspace.sh",
+    "return-type": "json"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "{}% "
+  },
+  "backlight": {
+    "format": "{percent}% 󰃝",
+    "tooltip-format": "{percent}% Brightness"
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-alt": "{time} ",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "battery#bat2": {
+    "bat": "BAT2"
+  },
+  "network": {
+    "format-wifi": "{signalStrength}% ",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󱚼",
+    "tooltip-format": "{ifname}",
+    "max-length": 50,
+    "on-click": "foot nmtui"
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon} ",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": "0%  ",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/power": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "wlogout"
+  }
+}
