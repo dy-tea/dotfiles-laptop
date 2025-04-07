@@ -8,7 +8,7 @@ exec = [
 [[startup.env]]
 MOZ_ENABLE_WAYLAND = 1
 ELECTRON_OZONE_PLATFORM_HINT = "wayland"
-SDL_VIDEODRIVER="wayland"
+SDL_VIDEODRIVER= "wayland"
 
 [keyboard]
 layout = "de"
@@ -51,18 +51,23 @@ height = 1800
 refresh = 90
 scale = 1.5
 
-[[commands]]
+[[commands]] # launcher
 bind = "Logo space"
 exec = "rofi -show drun"
 
-[[commands]]
+[[commands]] # terminal
 bind = "Logo Return"
 exec = "foot"
 
-[[commands]]
+[[commands]] # area selection screenshot
 bind = "Print"
 exec = "grim -g \"$(slurp)\" - | swappy -f - "
 
-[[commands]]
+[[commands]] # fullscreen screenshot
 bind = "Shift Print"
 exec = "grim - | swappy -f - "
+
+[[commands]] # file viewer
+bind = "Logo a"
+exec = "cosmic-files"
+
