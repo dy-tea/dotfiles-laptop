@@ -71,3 +71,10 @@ exec = "grim - | swappy -f - "
 bind = "Logo a"
 exec = "cosmic-files"
 
+[[commands]] # brightness up
+bind = "XF86MonBrightnessUp"
+exec = "brightnessctl set +10%"
+
+[[commands]] # brightness up
+bind = "XF86MonBrightnessDown"
+exec = "brightnessctl set 10%-"
