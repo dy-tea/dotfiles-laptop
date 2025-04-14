@@ -24,6 +24,9 @@ tap_to_click = true
 [tiling]
 method = "dwindle"
 
+[general]
+system_bell = "/usr/share/sounds/freedesktop/stereo/bell.oga"
+
 [binds]
 exit = "Logo Escape"
 window.close = "Logo w"
