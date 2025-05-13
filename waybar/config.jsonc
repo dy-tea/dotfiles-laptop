@@ -5,7 +5,9 @@
     "custom/awm_workspace"
   ],
   "modules-center": [
-    "clock"
+    "power-profiles-daemon",
+    "clock",
+    "idle_inhibitor"
   ],
   "modules-right": [
     "tray",
@@ -23,12 +25,24 @@
     "exec": "$HOME/.config/waybar/workspace.sh",
     "return-type": "json"
   },
+  "power-profiles-daemon": {
+     "format": "{icon}",
+     "tooltip-format": "Profile: {profile}\nDriver: {driver}",
+     "tooltip": true,
+     "format-icons": {
+         "default": "",
+         "performance": "",
+         "balanced": "",
+         "power-saver": "" 
+     }
+  },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
       "activated": "",
       "deactivated": ""
-    }
+    },
+    "timeout": 60.0
   },
   "tray": {
     "spacing": 10
