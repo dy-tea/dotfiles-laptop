@@ -10,7 +10,12 @@ exec = [
 [[startup.env]]
 MOZ_ENABLE_WAYLAND = 1
 ELECTRON_OZONE_PLATFORM_HINT = "wayland"
-SDL_VIDEODRIVER= "wayland"
+SDL_VIDEODRIVER = "wayland"
+
+[exit]
+exec = [
+	"killall awmsg"
+]
 
 [keyboard]
 layout = "de"
