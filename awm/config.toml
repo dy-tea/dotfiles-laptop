@@ -3,7 +3,8 @@ exec = [
 	"dunst",
 	"waybar",
 	"swaybg -i ~/Pictures/Backgrounds/bg.png",
-	"swayidle -w timeout 120 'swaylock -f -c 000000'"
+	"swayidle -w timeout 120 'swaylock -f -c 000000'",
+	"zeditor"
 ]
 
 [[startup.env]]
@@ -26,7 +27,7 @@ tap_to_click = true
 method = "dwindle"
 
 [general]
-system_bell = "/usr/share/sounds/freedesktop/stereo/bell.oga"
+system_bell = "ffplay -nodisp -autoexit /usr/share/sounds/freedesktop/stereo/bell.oga"
 
 [binds]
 exit = "Logo Escape"
@@ -35,6 +36,8 @@ window.fullscreen = "Logo f"
 window.previous = "Logo o"
 window.next = "Logo p"
 window.move = "Logo MouseLeft"
+window.resize = "Logo MouseRight"
+window.pin = "Logo Shift P"
 window.up = "Logo k"
 window.down = "Logo j"
 window.left = "Logo h"
@@ -87,3 +90,15 @@ exec = "brightnessctl set +10%"
 [[commands]] # brightness up
 bind = "XF86MonBrightnessDown"
 exec = "brightnessctl set 10%-"
+
+[[windowrules]]
+class = "dev.zed.Zed"
+workspace = 1
+
+[[windowrules]]
+class = "zen"
+workspace = 2
+
+[[windowrules]]
+class = "vesktop"
+workspace = 3

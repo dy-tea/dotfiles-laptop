@@ -53,8 +53,7 @@ window#waybar {
 #tray,
 #mode,
 #custom-power,
-#custom-awm_workspace,
-#idle_inhibitor {
+#custom-awm_workspace {
     padding: 0 10px;
     margin: 6px 3px; 
 }
@@ -102,7 +101,8 @@ label:focus {
 #network,
 #pulseaudio,
 #pulseaudio.muted,
-#custom-awm_workspace {
+#custom-awm_workspace,
+#idle_inhibitor {
     color: white;
 }
 
@@ -117,13 +117,4 @@ label:focus {
 
 #temperature.critical {
     background-color: #E67E80;
-}
-
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
 }
