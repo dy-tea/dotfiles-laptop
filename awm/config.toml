@@ -4,7 +4,8 @@ exec = [
 	"waybar",
 	"swaybg -i ~/Pictures/Backgrounds/bg.png",
 	"swayidle -w timeout 120 'swaylock -f -c 000000'",
-	"zeditor"
+	"zeditor",
+	"vesktop --ozone-platform='wayland'"
 ]
 
 [[startup.env]]
@@ -77,16 +78,20 @@ bind = "Logo Return"
 exec = "foot"
 
 [[commands]] # area selection screenshot
-bind = "Print"
-exec = "grim -g \"$(slurp)\" - | swappy -f - "
+bind = "Logo Shift S"
+exec = "frzscr -c sh -c 'grim -g \"$(slurp)\" - | wl-copy -t \"image/png\"'"
 
 [[commands]] # fullscreen screenshot
-bind = "Shift Print"
+bind = "Print"
 exec = "grim - | swappy -f - "
+
+[[commands]] # toplevel screenshot
+bind = "Alt Print"
+exec = "grim -T \"$(awmsg t f | jq -j '.foreign')\" - | wl-copy -t 'image/png'" 
 
 [[commands]] # file viewer
 bind = "Logo a"
-exec = "cosmic-files"
+exec = "nautilus"
 
 [[commands]] # brightness up
 bind = "XF86MonBrightnessUp"
@@ -103,6 +108,7 @@ workspace = 1
 [[windowrules]]
 class = "zen"
 workspace = 2
+state = "maximized"
 
 [[windowrules]]
 class = "vesktop"
