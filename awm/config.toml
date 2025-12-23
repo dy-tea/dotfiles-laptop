@@ -5,13 +5,16 @@ exec = [
 	"swaybg -i ~/Pictures/Backgrounds/bg.png",
 	"swayidle -w timeout 120 'swaylock -f -c 000000'",
 	"zeditor",
-	"vesktop --ozone-platform='wayland'"
+	"vesktop --ozone-platform='wayland'",
+	"/usr/lib/xdg-desktop-portal-wlr &",
+	"/usr/lib/xdg-desktop-portal -r",
 ]
 
 [[startup.env]]
 MOZ_ENABLE_WAYLAND = 1
 ELECTRON_OZONE_PLATFORM_HINT = "wayland"
 SDL_VIDEODRIVER = "wayland"
+QT_QPA_PLATFORM = "wayland"
 
 [exit]
 exec = [
@@ -79,15 +82,15 @@ exec = "foot"
 
 [[commands]] # area selection screenshot
 bind = "Logo Shift S"
-exec = "frzscr -c sh -c 'grim -g \"$(slurp)\" - | wl-copy -t \"image/png\"'"
+exec = "frzscr -c sh -c 'mrpenishot -g \"$(slurp)\" - | wl-copy -t \"image/png\"'"
 
 [[commands]] # fullscreen screenshot
 bind = "Print"
-exec = "grim - | swappy -f - "
+exec = "mrpenishot - | swappy -f - "
 
 [[commands]] # toplevel screenshot
 bind = "Alt Print"
-exec = "grim -T \"$(awmsg t f | jq -j '.foreign')\" - | wl-copy -t 'image/png'" 
+exec = "mrpenishot -t \"$(awmsg t f | jq -j '.foreign')\" - | wl-copy -t 'image/png'" 
 
 [[commands]] # file viewer
 bind = "Logo a"
