@@ -1,0 +1,151 @@
+#
+# bwm hotkey configuration
+#
+
+# terminal emulator
+super + Return
+	foot
+
+# launcher
+super + space
+	rofi -show drun
+
+# close window
+super + w
+	bmsg node --close
+
+# toggle fullscreen
+super + f
+	bmsg node --state fullscreen
+
+# toggle floating
+super + shift + space
+	bmsg node --state floating
+
+# toggle monocle
+super + m
+	bmsg desktop --layout monocle
+
+# window navigation
+super + h
+	bmsg focus west
+super + j
+	bmsg focus south
+super + k
+	bmsg focus north
+super + l
+	bmsg focus east
+
+# window swapping
+super + shift + h
+	bmsg swap west
+super + shift + j
+	bmsg swap south
+super + shift + k
+	bmsg swap north
+super + shift + l
+	bmsg swap east
+
+# preselection
+super + ctrl + h
+	bmsg presel west
+super + ctrl + j
+	bmsg presel south
+super + ctrl + k
+	bmsg presel north
+super + ctrl + l
+	bmsg presel east
+
+# cancel preselection
+super + ctrl + space
+	bmsg presel cancel
+
+# rotate
+super + r
+	bmsg rotate clockwise
+super + shift + r
+	bmsg rotate counterclockwise
+
+# flip
+super + comma
+	bmsg flip horizontal
+super + period
+	bmsg flip vertical
+
+# desktop switching (1-based index)
+super + 1
+	bmsg desktop 1
+super + 2
+	bmsg desktop 2
+super + 3
+	bmsg desktop 3
+super + 4
+	bmsg desktop 4
+super + 5
+	bmsg desktop 5
+super + 6
+	bmsg desktop 6
+super + 7
+	bmsg desktop 7
+super + 8
+	bmsg desktop 8
+super + 9
+	bmsg desktop 9
+super + 0
+	bmsg desktop 10
+
+# send to desktop (1-based index)
+super + shift + 1
+	bmsg node --to-desktop 1
+super + shift + 2
+	bmsg node --to-desktop 2
+super + shift + 3
+	bmsg node --to-desktop 3
+super + shift + 4
+	bmsg node --to-desktop 4
+super + shift + 5
+	bmsg node --to-desktop 5
+super + shift + 6
+	bmsg node --to-desktop 6
+super + shift + 7
+	bmsg node --to-desktop 7
+super + shift + 8
+	bmsg node --to-desktop 8
+super + shift + 9
+	bmsg node --to-desktop 9
+super + shift + 0
+	bmsg node --to-desktop 10
+
+# send to next/prev desktop
+super + shift + Right
+	bmsg send next
+super + shift + Left
+	bmsg send prev
+
+# screenshots
+Print
+	mrpenishot - | wl-copy -t image/png
+super + shift + s
+	mrpenishot -F '' -g '$(slurp)' - | wl-copy -t image/png
+super + alt + shift + s
+	mrpenishot -t "bmsg query -f | jq -r '.identifier'" - | wl-copy -t image/png
+
+
+# quit
+super + shift + escape
+	bmsg quit
+
+
+super + shift + F -> @focus
+
+@focus
+    escape
+        @exit
+    h
+        bmsg focus west
+    j
+        bmsg focus south
+    k
+        bmsg focus north
+    l
+        bmsg focus east

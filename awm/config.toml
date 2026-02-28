@@ -18,7 +18,8 @@ QT_QPA_PLATFORM = "wayland"
 
 [exit]
 exec = [
-	"killall awmsg"
+	"killall awmsg",
+	"killall vesktop"	
 ]
 
 [keyboard]
@@ -34,6 +35,7 @@ tap_to_click = true
 
 [tiling]
 method = "dwindle"
+auto_tile = true
 
 [general]
 system_bell = "ffplay -nodisp -autoexit /usr/share/sounds/freedesktop/stereo/bell.oga"
@@ -56,6 +58,7 @@ window.swap.down = "Shift Logo J"
 window.swap.left = "Shift Logo H"
 window.swap.right = "Shift Logo L"
 window.swap.close = "Logo w"
+window.toggle_floating = "Logo Shift F"
 window.half.up = "Logo Up"
 window.half.down = "Logo Down"
 window.half.left = "Logo Left"
@@ -82,7 +85,7 @@ exec = "foot"
 
 [[commands]] # area selection screenshot
 bind = "Logo Shift S"
-exec = "frzscr -c sh -c 'mrpenishot -g \"$(slurp)\" - | wl-copy -t \"image/png\"'"
+exec = "frzscr -c sh -c 'mrpenishot -g \"$(slurp)\" - | wl-copy -t image/png'"
 
 [[commands]] # fullscreen screenshot
 bind = "Print"
@@ -90,7 +93,7 @@ exec = "mrpenishot - | swappy -f - "
 
 [[commands]] # toplevel screenshot
 bind = "Alt Print"
-exec = "mrpenishot -t \"$(awmsg t f | jq -j '.foreign')\" - | wl-copy -t 'image/png'" 
+exec = "mrpenishot -t \"$(awmsg t f | jq -j .foreign)\" - | wl-copy -t image/png" 
 
 [[commands]] # file viewer
 bind = "Logo a"

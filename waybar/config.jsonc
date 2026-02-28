@@ -1,14 +1,8 @@
 {
   "layer": "top",
   "position": "top",
-  "modules-left": [
-    "custom/awm_workspace"
-  ],
-  "modules-center": [
-    "power-profiles-daemon",
-    "clock",
-    "idle_inhibitor"
-  ],
+  "modules-left": ["ext/workspaces"],
+  "modules-center": ["power-profiles-daemon", "clock", "idle_inhibitor"],
   "modules-right": [
     "tray",
     "pulseaudio",
@@ -18,68 +12,69 @@
     "memory",
     "battery",
     "battery#bat2",
-    "custom/power"
+    "custom/power",
   ],
   "custom/awm_workspace": {
     "format": "{text}",
     "exec": "$HOME/.config/waybar/workspace.sh",
-    "return-type": "json"
+    "return-type": "json",
+  },
+  "ext/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "sort-by-name": false,
+    "all-outputs": false,
+    "active-only": false,
   },
   "power-profiles-daemon": {
-     "format": "{icon}",
-     "tooltip-format": "Profile: {profile}\nDriver: {driver}",
-     "tooltip": true,
-     "format-icons": {
-         "default": "",
-         "performance": "",
-         "balanced": "",
-         "power-saver": "" 
-     }
+    "format": "{icon}",
+    "tooltip-format": "Profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": "",
+    },
   },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
       "activated": "",
-      "deactivated": ""
+      "deactivated": "",
     },
-    "timeout": 60.0
+    "timeout": 60.0,
   },
   "tray": {
-    "spacing": 10
+    "spacing": 10,
   },
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "format-alt": "{:%Y-%m-%d}",
   },
   "cpu": {
     "format": "{usage}% ",
-    "tooltip": false
+    "tooltip": false,
   },
   "memory": {
-    "format": "{}% "
+    "format": "{}% ",
   },
   "backlight": {
     "format": "{percent}% 󰃝",
-    "tooltip-format": "{percent}% Brightness"
+    "tooltip-format": "{percent}% Brightness",
   },
   "battery": {
     "states": {
       "good": 95,
       "warning": 30,
-      "critical": 15
+      "critical": 15,
     },
     "format": "{capacity}% {icon}",
     "format-alt": "{time} ",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
+    "format-icons": ["", "", "", "", ""],
   },
   "battery#bat2": {
-    "bat": "BAT2"
+    "bat": "BAT2",
   },
   "network": {
     "format-wifi": "{signalStrength}% ",
@@ -87,12 +82,12 @@
     "format-disconnected": "󱚼",
     "tooltip-format": "{ifname}",
     "max-length": 50,
-    "on-click": "foot nmtui"
+    "on-click": "foot nmtui",
   },
   "pulseaudio": {
     "format": "{volume}% {icon} ",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": "󰖁 {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source} ",
+    "format-bluetooth-muted": "󰖁 {icon} {format_source} ",
     "format-muted": "0% 󰖁 ",
     "format-source": "{volume}% ",
     "format-source-muted": "",
@@ -103,17 +98,13 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
+      "default": ["", "", ""],
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
   },
   "custom/power": {
     "format": " ",
     "tooltip": false,
-    "on-click": "wlogout"
-  }
+    "on-click": "wlogout",
+  },
 }

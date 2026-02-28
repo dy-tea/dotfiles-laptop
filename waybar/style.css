@@ -22,16 +22,14 @@ window#waybar {
 
 #workspaces button {
     color: white;
-    box-shadow: inset 0 -3px transparent;
 }
 
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.9);
-    box-shadow: inset 0 -3px #ffffff;
 }
 
-#workspaces button.focused {
-    background-color: #64727D;
+#workspaces button.active {
+    font-weight: bold;
 }
 
 #workspaces button.urgent {
@@ -39,7 +37,7 @@ window#waybar {
 }
 
 #mode {
-    background-color: #64727D;
+    background-color: #64727d;
 }
 
 #clock,
@@ -55,21 +53,19 @@ window#waybar {
 #custom-power,
 #custom-awm_workspace {
     padding: 0 10px;
-    margin: 6px 3px; 
+    margin: 6px 3px;
 }
 
-#window,
-#workspaces {
+#window {
     margin: 0 4px;
 }
 
-
 #battery.charging {
-    color: #A7C080;
+    color: #a7c080;
 }
 
 #battery.critical {
-    color: #E67E80;
+    color: #e67e80;
 }
 
 @keyframes blink {
@@ -93,19 +89,18 @@ label:focus {
     background-color: #000000;
 }
 
-
 #cpu,
 #tray,
 #memory,
 #backlight,
 #network,
 #pulseaudio,
+#workspaces,
 #pulseaudio.muted,
 #custom-awm_workspace,
 #idle_inhibitor {
     color: white;
 }
-
 
 #network.disconnected {
     background-color: #f53c3c;
@@ -116,5 +111,5 @@ label:focus {
 }
 
 #temperature.critical {
-    background-color: #E67E80;
+    background-color: #e67e80;
 }
