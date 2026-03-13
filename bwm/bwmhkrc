@@ -6,6 +6,10 @@
 super + Return
 	foot
 
+# file manager
+super + a
+	nautilus
+
 # launcher
 super + space
 	rofi -show drun
@@ -27,34 +31,16 @@ super + m
 	bmsg desktop --layout monocle
 
 # window navigation
-super + h
-	bmsg focus west
-super + j
-	bmsg focus south
-super + k
-	bmsg focus north
-super + l
-	bmsg focus east
+super + {h,j,k,l}
+	bmsg focus {west,south,north,east}
 
 # window swapping
-super + shift + h
-	bmsg swap west
-super + shift + j
-	bmsg swap south
-super + shift + k
-	bmsg swap north
-super + shift + l
-	bmsg swap east
+super + shift + {h,j,k,l}
+	bmsg swap {west,south,north,east}
 
 # preselection
-super + ctrl + h
-	bmsg presel west
-super + ctrl + j
-	bmsg presel south
-super + ctrl + k
-	bmsg presel north
-super + ctrl + l
-	bmsg presel east
+super + ctrl + {h,j,k,l}
+	bmsg presel {west,south,north,east}
 
 # cancel preselection
 super + ctrl + space
@@ -67,60 +53,24 @@ super + shift + r
 	bmsg rotate counterclockwise
 
 # flip
-super + comma
-	bmsg flip horizontal
-super + period
-	bmsg flip vertical
+super + {comma,period}
+	bmsg flip {horizontal,vertical}
 
 # desktop switching (1-based index)
-super + 1
-	bmsg desktop 1
-super + 2
-	bmsg desktop 2
-super + 3
-	bmsg desktop 3
-super + 4
-	bmsg desktop 4
-super + 5
-	bmsg desktop 5
-super + 6
-	bmsg desktop 6
-super + 7
-	bmsg desktop 7
-super + 8
-	bmsg desktop 8
-super + 9
-	bmsg desktop 9
+super + {1-9}
+	bmsg desktop {1-9}
 super + 0
-	bmsg desktop 10
-
+	bmsg desktop 0
+#
 # send to desktop (1-based index)
-super + shift + 1
-	bmsg node --to-desktop 1
-super + shift + 2
-	bmsg node --to-desktop 2
-super + shift + 3
-	bmsg node --to-desktop 3
-super + shift + 4
-	bmsg node --to-desktop 4
-super + shift + 5
-	bmsg node --to-desktop 5
-super + shift + 6
-	bmsg node --to-desktop 6
-super + shift + 7
-	bmsg node --to-desktop 7
-super + shift + 8
-	bmsg node --to-desktop 8
-super + shift + 9
-	bmsg node --to-desktop 9
+super + shift + {1-9}
+	bmsg node --to-desktop {1-9}
 super + shift + 0
 	bmsg node --to-desktop 10
 
 # send to next/prev desktop
-super + shift + Right
-	bmsg send next
-super + shift + Left
-	bmsg send prev
+super + shift + {Right,Left}
+	bmsg send {next,prev}
 
 # screenshots
 Print
@@ -135,17 +85,21 @@ super + alt + shift + s
 super + shift + escape
 	bmsg quit
 
+# Gesture bindings (touchpad)
+gesture swipe:3:left
+	bmsg desktop --focus prev
+gesture swipe:3:right
+	bmsg desktop --focus next
+gesture pinch:in
+	bmsg node --state fullscreen
+gesture pinch:out
+	bmsg node --state fullscreen
+
 
 super + shift + F -> @focus
 
 @focus
     escape
         @exit
-    h
-        bmsg focus west
-    j
-        bmsg focus south
-    k
-        bmsg focus north
-    l
-        bmsg focus east
+    {h,j,k,l}
+        bmsg focus {west,south,north,east}

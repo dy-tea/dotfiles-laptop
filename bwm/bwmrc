@@ -8,11 +8,16 @@ bmsg monitor -d I II III IV V VI VII VIII IX X
 
 bmsg output eDP-1 scale 1.5
 
-# Set border width
-bmsg config border_width 5
+# Set border config
+bmsg config border_width 2
+bmsg config normal_border_color 343f44ff
+bmsg config active_border_color 425047ff
+bmsg config focused_border_color a7c080ff
+bmsg config presel_feedback_color e69875ff
+
 
 # Set window gap
-bmsg config window_gap 0
+bmsg config window_gap 10
 
 # Set single monocle
 bmsg config single_monocle true
@@ -29,9 +34,18 @@ bmsg input type:touchpad natural_scroll true
 bmsg input type:touchpad tap true
 
 # Rules
-bmsg rule -a com.dec05eba.gpu_screen_recorder state=floating center=on
+bmsg rule -a com.dec05eba.gpu_screen_recorder state=floating
+bmsg rule -a dev.zed.Zed desktop=I
+bmsg rule -a zen desktop=II
+bmsg rule -a discord desktop=III
+
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=bwm
 
 # Start apps
 swaybg -i ~/Pictures/Backgrounds/bg.png &
 /home/dylan/Repos/Waybar/build/waybar &
 swayidle -w timeout 120 'chayang && swaylock -f -c 000000' &
+zeditor &
+zen-browser &
+discord --ozone-platform=wayland &
